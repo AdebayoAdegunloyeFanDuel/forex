@@ -29,7 +29,28 @@ public class ConfigManager {
     }
 
     public static String ratesTestFileLocation(){
+
         return config.getProperty("rates_test_file_location");
+    }
+
+    public static String fixerBaseUrl(){
+        return config.getProperty("base_url");
+    }
+
+    public static String accessQueryParamValue(){
+        return config.getProperty("access_key_param");
+    }
+
+    public static String LatestServiceEndPoint(){
+        return config.getProperty("latest_service_endpoint");
+    }
+
+    public static String accessKey(){
+        return config.getProperty("access_key");
+    }
+
+    public static String testEnv(){
+        return config.getProperty("test_env");
     }
 
 }

@@ -6,15 +6,25 @@ import java.io.File;
 import java.io.IOException;
 
 public class ForexRatesDeserialiser {
-    public ForexJsonDTO forexJsonDTO;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
-    public ForexRatesDeserialiser(File json_file_location) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
+    public ForexJsonDTO fixerLatestRatesData(File json_file_location) {
         try {
-            forexJsonDTO = objectMapper.readValue(json_file_location, ForexJsonDTO.class);
+            return objectMapper.readValue(json_file_location, ForexJsonDTO.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
+    public ForexJsonDTO fixerLatestRatesData(String json_string) {
+        try {
+            return objectMapper.readValue(json_string, ForexJsonDTO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 }
